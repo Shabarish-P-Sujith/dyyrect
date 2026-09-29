@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-black: #080809;
+  --color-brand-dark: #0e0e10;
+  --color-brand-surface: #131315;
+  --color-brand-card: #161619;
+  --color-brand-border: #232326;
+  --color-brand-borderSubtle: #1b1b1e;
+  --color-brand-muted: #71717a;
+  --color-brand-secondary: #a1a1aa;
+  --color-brand-light: #f4f4f5;
+
+  --color-terminal-neon: #00FF66;
+  --color-terminal-glow: rgba(0, 255, 102, 0.10);
+  --color-terminal-dim: #00df59;
+  --color-terminal-subtle: #004d1f;
+
+  --color-onyx-base: #080808;
+  --color-onyx-950: #070709;
+  --color-onyx-900: #0c0c0e;
+  --color-onyx-850: #111115;
+  --color-onyx-800: #16161b;
+  --color-onyx-700: #22222a;
+  --color-onyx-600: #2e2e38;
+  --color-onyx-surface: #0f0f12;
+  --color-onyx-card: #111114;
+  --color-onyx-elevated: #17171c;
+  --color-onyx-border: #212127;
+  --color-onyx-input: #131317;
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #080809;
+  --foreground: #f4f4f5;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.bg-grid-subtle {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+.tech-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.bg-radial-flare {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.07) 0%, rgba(7, 7, 9, 0) 65%);
+}
+
+.shadow-neon-sm {
+  box-shadow: 0 0 14px -2px rgba(0, 255, 102, 0.35);
+}
+
+.shadow-glow-subtle {
+  box-shadow: 0 0 25px -4px rgba(0, 255, 102, 0.20);
+}
+
+.neon-glow {
+  box-shadow: 0 0 45px -10px rgba(0, 255, 102, 0.18);
+}
+
+.btn-green-glow:hover {
+  box-shadow: 0 0 25px -4px rgba(0, 255, 102, 0.45);
+}
+
+.interactive-transition {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
