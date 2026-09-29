@@ -2,66 +2,46 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const [authMode, setAuthMode] = useState<"code" | "password">("code");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showCodeModal, setShowCodeModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [codeDigits, setCodeDigits] = useState<string[]>(["", "", "", "", "", ""]);
   const [authSuccess, setAuthSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
-  const digitRefs = [
-    useRef<HTMLInputElement>(null),
-    useRef<HTMLInputElement>(null),
-    useRef<HTMLInputElement>(null),
-    useRef<HTMLInputElement>(null),
-    useRef<HTMLInputElement>(null),
-    useRef<HTMLInputElement>(null),
-  ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) return;
-
-    if (authMode === "code") {
-      setShowCodeModal(true);
-      setTimeout(() => {
-        digitRefs[0].current?.focus();
-      }, 100);
-    } else {
-      setSubmitting(true);
-      setTimeout(() => {
-        setSubmitting(false);
+    if (!email.trim() || !password.trim()) return;
+    setError(null);
+    setSubmitting(true);
+    
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      
+      if (res.ok) {
         setAuthSuccess(true);
-      }, 900);
+        router.push(`/${data.user.role}`);
+      } else {
+        setError(data.error || "Authentication failed");
+      }
+    } catch (err) {
+      setError("Network error occurred");
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const handleDigitChange = (index: number, value: string) => {
-    if (value.length > 1) {
-      value = value.slice(-1);
-    }
-    const newDigits = [...codeDigits];
-    newDigits[index] = value;
-    setCodeDigits(newDigits);
 
-    if (value && index < 5) {
-      digitRefs[index + 1].current?.focus();
-    }
-  };
-
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Backspace" && !codeDigits[index] && index > 0) {
-      digitRefs[index - 1].current?.focus();
-    }
-  };
-
-  const handleVerifyCode = () => {
-    setAuthSuccess(true);
-    setShowCodeModal(false);
-  };
 
   return (
     <div className="min-h-screen bg-onyx-950 text-neutral-200 antialiased flex flex-col justify-between relative selection:bg-terminal-neon selection:text-black">
@@ -155,8 +135,7 @@ export default function LoginPage() {
                     type="button"
                     onClick={() => {
                       setEmail("github-user@dyyrect.io");
-                      setAuthMode("code");
-                      setShowCodeModal(true);
+                      setPassword("password123");
                     }}
                   >
                     <svg
@@ -180,8 +159,7 @@ export default function LoginPage() {
                     type="button"
                     onClick={() => {
                       setEmail("google-user@dyyrect.io");
-                      setAuthMode("code");
-                      setShowCodeModal(true);
+                      setPassword("password123");
                     }}
                   >
                     <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24">
@@ -212,8 +190,7 @@ export default function LoginPage() {
                     type="button"
                     onClick={() => {
                       setEmail("apple-user@dyyrect.io");
-                      setAuthMode("code");
-                      setShowCodeModal(true);
+                      setPassword("password123");
                     }}
                   >
                     <svg
@@ -264,38 +241,15 @@ export default function LoginPage() {
                 </span>
               </div>
 
-              {/* BEGIN: Authentication Tabs */}
-              <div
-                className="mb-5 flex rounded-lg bg-onyx-950 p-1 border border-white/[0.05]"
-                data-purpose="auth-method-selector"
-              >
-                <button
-                  className={`flex-1 py-1.5 px-3 rounded-md text-xs font-medium transition-all text-center cursor-pointer ${
-                    authMode === "code"
-                      ? "text-white bg-onyx-800 shadow-sm"
-                      : "text-neutral-400 hover:text-neutral-200"
-                  }`}
-                  onClick={() => setAuthMode("code")}
-                  type="button"
-                >
-                  One-time Code
-                </button>
-                <button
-                  className={`flex-1 py-1.5 px-3 rounded-md text-xs font-medium transition-all text-center cursor-pointer ${
-                    authMode === "password"
-                      ? "text-white bg-onyx-800 shadow-sm"
-                      : "text-neutral-400 hover:text-neutral-200"
-                  }`}
-                  onClick={() => setAuthMode("password")}
-                  type="button"
-                >
-                  Password / Key
-                </button>
-              </div>
-              {/* END: Authentication Tabs */}
+
 
               {/* BEGIN: Primary Form */}
               <form className="space-y-4" onSubmit={handleSubmit}>
+                {error && (
+                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs text-center font-mono">
+                    {error}
+                  </div>
+                )}
                 {/* Email / Identifier Field */}
                 <div>
                   <label
@@ -330,41 +284,34 @@ export default function LoginPage() {
                 </div>
 
                 {/* Password Field */}
-                {authMode === "password" && (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between">
-                      <label className="block text-xs font-medium text-neutral-300" htmlFor="password">
-                        CLI Token / Password
-                      </label>
-                      <a
-                        className="text-[11px] font-mono text-neutral-500 hover:text-terminal-neon transition-colors"
-                        href="#"
-                      >
-                        Lost token?
-                      </a>
-                    </div>
-                    <div className="relative">
-                      <input
-                        autoComplete="current-password"
-                        className="w-full h-10 px-3.5 rounded-lg bg-onyx-950 border border-white/[0.12] text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon interactive-transition font-mono text-[13px]"
-                        id="password"
-                        name="password"
-                        placeholder="••••••••••••••••"
-                        required
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label className="block text-xs font-medium text-neutral-300" htmlFor="password">
+                      Password
+                    </label>
+                    <a
+                      className="text-[11px] font-mono text-neutral-500 hover:text-terminal-neon transition-colors"
+                      href="#"
+                    >
+                      Lost token?
+                    </a>
                   </div>
-                )}
+                  <div className="relative">
+                    <input
+                      autoComplete="current-password"
+                      className="w-full h-10 px-3.5 rounded-lg bg-onyx-950 border border-white/[0.12] text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon interactive-transition font-mono text-[13px]"
+                      id="password"
+                      name="password"
+                      placeholder="••••••••••••••••"
+                      required
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                </div>
 
-                {/* Helper note for one-time passcode mode */}
-                {authMode === "code" && (
-                  <p className="text-[11.5px] leading-relaxed text-neutral-400">
-                    We will dispatch an ephemeral 6-digit cryptographic verification code to this address.
-                  </p>
-                )}
+
 
                 {/* Primary Submit Action */}
                 <div className="pt-1">
@@ -374,11 +321,7 @@ export default function LoginPage() {
                     disabled={submitting}
                   >
                     <span>
-                      {submitting
-                        ? "Connecting to mesh..."
-                        : authMode === "code"
-                        ? "Send Login Code"
-                        : "Sign In to dyyrect"}
+                      {submitting ? "Connecting..." : "Sign In to dyyrect"}
                     </span>
                     <svg
                       className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
@@ -421,12 +364,12 @@ export default function LoginPage() {
 
           {/* Footer Registration link */}
           <div className="mt-6 text-center text-xs text-neutral-400">
-            <span>Don&apos;t have a peer account?</span>
+            <span>Don&apos;t have an account?</span>
             <Link
               className="font-medium text-terminal-neon hover:underline underline-offset-4 ml-1"
               href="/signup"
             >
-              Open ephemeral node
+              Sign up
             </Link>
           </div>
         </div>
@@ -459,84 +402,7 @@ export default function LoginPage() {
       </footer>
       {/* END: SiteFooter */}
 
-      {/* BEGIN: Passcode Verification Modal */}
-      {showCodeModal && (
-        <div
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity duration-200"
-          role="dialog"
-        >
-          <div className="w-full max-w-sm rounded-xl border border-white/[0.1] bg-onyx-900 p-6 shadow-2xl relative">
-            <button
-              aria-label="Close dialog"
-              className="absolute top-4 right-4 text-neutral-400 hover:text-white p-1 cursor-pointer"
-              onClick={() => setShowCodeModal(false)}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M6 18L18 6M6 6l12 12"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
-            </button>
 
-            <div className="text-center mb-6">
-              <div className="w-10 h-10 rounded-full bg-terminal-neon/10 border border-terminal-neon/20 text-terminal-neon flex items-center justify-center mx-auto mb-3 shadow-neon-sm">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-base font-semibold text-white">Check your email</h3>
-              <p className="text-xs text-neutral-400 mt-1">
-                We sent a 6-digit one-time code to <br />
-                <span className="text-neutral-200 font-mono font-medium">{email || "peer@node.io"}</span>
-              </p>
-            </div>
-
-            {/* 6-digit Code Inputs */}
-            <div className="flex justify-between gap-2 mb-6" data-purpose="code-input-slots">
-              {codeDigits.map((digit, idx) => (
-                <input
-                  key={idx}
-                  ref={digitRefs[idx]}
-                  value={digit}
-                  onChange={(e) => handleDigitChange(idx, e.target.value)}
-                  onKeyDown={(e) => handleKeyDown(idx, e)}
-                  className="w-11 h-12 text-center text-lg font-mono rounded-lg bg-onyx-950 border border-white/[0.15] text-white focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon outline-none transition-all"
-                  maxLength={1}
-                  type="text"
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={handleVerifyCode}
-              className="w-full h-10 rounded-lg bg-white text-black font-semibold text-xs uppercase tracking-wide hover:bg-neutral-200 transition-colors font-mono cursor-pointer"
-              type="button"
-            >
-              Verify &amp; Connect
-            </button>
-
-            <div className="mt-4 text-center">
-              <button
-                className="text-xs text-neutral-500 hover:text-terminal-neon font-mono transition-colors cursor-pointer"
-                type="button"
-                onClick={() => alert("New 6-digit code dispatched!")}
-              >
-                Resend code in <span className="text-neutral-400">0:45</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* END: Passcode Verification Modal */}
     </div>
   );
 }

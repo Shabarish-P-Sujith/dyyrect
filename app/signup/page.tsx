@@ -2,22 +2,45 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [passwordless, setPasswordless] = useState(true);
+  const [password, setPassword] = useState("");
   const [region, setRegion] = useState("auto");
   const [registered, setRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email.trim() || !password.trim()) return;
+    setError(null);
     setLoading(true);
-    setTimeout(() => {
+
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      
+      if (res.ok) {
+        setRegistered(true);
+        setTimeout(() => {
+          router.push(`/${data.user.role}`);
+        }, 1500);
+      } else {
+        setError(data.error || "Registration failed");
+      }
+    } catch (err) {
+      setError("Network error occurred");
+    } finally {
       setLoading(false);
-      setRegistered(true);
-    }, 900);
+    }
   };
 
   return (
@@ -81,9 +104,9 @@ export default function SignupPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-white">Peer Handle Created!</h2>
+              <h2 className="text-xl font-semibold text-white">Account Created!</h2>
               <p className="text-xs text-zinc-400 font-mono">
-                Your peer node handle <span className="text-terminal-neon font-bold">{username || "alex"}.peer</span> is now reserved on the global mesh.
+                Your account <span className="text-terminal-neon font-bold">{email}</span> has been successfully registered.
               </p>
               <div className="pt-2">
                 <Link
@@ -107,7 +130,7 @@ export default function SignupPage() {
                   Create your account
                 </h1>
                 <p className="text-xs text-zinc-400 mt-1.5">
-                  Direct peer-to-peer data transport at wire rate
+                  Sign up to access your dashboard
                 </p>
               </div>
 
@@ -197,32 +220,34 @@ export default function SignupPage() {
 
               {/* Registration Form */}
               <form onSubmit={handleSignup} className="space-y-4" data-purpose="signup-form">
+                {error && (
+                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs text-center font-mono">
+                    {error}
+                  </div>
+                )}
                 {/* Full Name / Username Field */}
                 <div>
                   <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="name">
-                    Username or handle
+                    Full Name
                   </label>
                   <div className="relative">
                     <input
                       className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon font-mono transition-colors"
                       id="name"
                       name="name"
-                      placeholder="e.g. alex-tensor"
+                      placeholder="e.g. John Doe"
                       required
                       type="text"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                     />
-                    <span className="absolute right-3.5 top-2.5 text-xs text-zinc-400 font-mono">
-                      .peer
-                    </span>
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div>
                   <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="email">
-                    Work or developer email
+                    Email address
                   </label>
                   <input
                     className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon transition-colors font-mono text-[13px]"
@@ -236,23 +261,21 @@ export default function SignupPage() {
                   />
                 </div>
 
-                {/* Passwordless Magic Link Toggle */}
-                <div className="p-3 rounded-xl bg-onyx-elevated/70 border border-onyx-border flex items-start gap-3">
-                  <input
-                    checked={passwordless}
-                    onChange={(e) => setPasswordless(e.target.checked)}
-                    className="mt-0.5 rounded border-zinc-700 bg-onyx-input text-terminal-neon focus:ring-terminal-neon/40 focus:ring-offset-0 focus:ring-1 accent-[#00FF66]"
-                    id="magic-code"
-                    name="magic-code"
-                    type="checkbox"
-                  />
-                  <label
-                    className="text-xs text-zinc-300 leading-snug cursor-pointer select-none"
-                    htmlFor="magic-code"
-                  >
-                    <span className="font-medium text-white block">Email passwordless login code</span>
-                    Ephemeral one-time key with Curve25519 payload session.
+                {/* Password Field */}
+                <div>
+                  <label className="block text-xs font-medium text-zinc-400 mb-1.5" htmlFor="password">
+                    Password
                   </label>
+                  <input
+                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon transition-colors font-mono text-[13px]"
+                    id="password"
+                    name="password"
+                    placeholder="••••••••••••••••"
+                    required
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
 
                 {/* Region / Node Selection */}
@@ -283,7 +306,7 @@ export default function SignupPage() {
                   type="submit"
                   disabled={loading}
                 >
-                  <span>{loading ? "Registering peer node..." : "Create account"}</span>
+                  <span>{loading ? "Creating account..." : "Create account"}</span>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4"
