@@ -340,13 +340,13 @@ export default function SignupPage() {
           {/* Legal / Compliance Footnote */}
           <p className="text-center text-[11px] text-zinc-400 mt-6 leading-relaxed max-w-[360px] mx-auto">
             By creating an account, you agree to dyyrect&apos;s{" "}
-            <a className="underline hover:text-zinc-300 transition-colors" href="#">
+            <Link className="underline hover:text-terminal-neon transition-colors" href="/terms">
               Terms of Service
-            </a>{" "}
+            </Link>{" "}
             and{" "}
-            <a className="underline hover:text-zinc-300 transition-colors" href="#">
-              Data Processing Agreement
-            </a>
+            <Link className="underline hover:text-terminal-neon transition-colors" href="/terms#privacy">
+              Data Privacy Agreement
+            </Link>
             . Zero data is retained on relay nodes.
           </p>
         </div>

@@ -388,13 +388,13 @@ export default function LoginPage() {
 
         {/* Legal & Security Links */}
         <div className="flex items-center gap-4 text-[11px]">
-          <a className="hover:text-neutral-300 transition-colors" href="#">
+          <Link className="hover:text-neutral-300 transition-colors" href="/terms">
             Terms of Service
-          </a>
-          <a className="hover:text-neutral-300 transition-colors" href="#">
+          </Link>
+          <Link className="hover:text-neutral-300 transition-colors" href="/terms#privacy">
             Privacy Policy
-          </a>
-          <a className="hover:text-neutral-300 transition-colors" href="#">
+          </Link>
+          <a className="hover:text-neutral-300 transition-colors" href="/#resources">
             Security Whitepaper
           </a>
           <span className="text-neutral-600">v1.14.8</span>
