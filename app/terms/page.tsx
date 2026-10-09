@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="bg-brand-black text-brand-light font-sans antialiased min-h-screen relative flex flex-col justify-between selection:bg-terminal-neon selection:text-black">
+    <div className="bg-brand-black text-brand-light font-sans antialiased min-h-screen relative flex flex-col justify-between selection:bg-white selection:text-black">
       {/* Background Ambience */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-white/[0.035] via-terminal-neon/[0.012] to-transparent blur-3xl opacity-70"></div>
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-white/[0.04] via-zinc-600/[0.015] to-transparent blur-3xl opacity-70"></div>
         <div className="fixed inset-0 tech-grid opacity-30"></div>
       </div>
 
@@ -23,7 +23,7 @@ export default function TermsPage() {
           {/* Header Banner */}
           <div className="mb-12 border-b border-brand-borderSubtle pb-8">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-dark border border-brand-border text-xs text-brand-secondary mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon shadow-[0_0_6px_#00FF66]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.7)]"></span>
               <span className="font-mono">LEGAL PROTOCOL SPECIFICATION</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-mono">
@@ -37,7 +37,7 @@ export default function TermsPage() {
           {/* Quick Contact & Summary Box */}
           <div className="p-6 rounded-xl bg-brand-surface/70 border border-brand-border mb-12 backdrop-blur-sm">
             <h2 className="text-sm font-semibold text-white font-mono uppercase tracking-wider mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-terminal-neon"></span>
+              <span className="w-2 h-2 rounded-full bg-white"></span>
               Direct Summary &amp; Zero Retention Principle
             </h2>
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
@@ -46,13 +46,13 @@ export default function TermsPage() {
             <div className="mt-4 pt-4 border-t border-brand-border flex flex-wrap gap-6 text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-2">
                 <span className="text-zinc-500">Legal Contact:</span>
-                <a href="mailto:support@dyyrect.com" className="text-terminal-neon hover:underline">
+                <a href="mailto:support@dyyrect.com" className="text-white hover:underline">
                   support@dyyrect.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-zinc-500">Hotline:</span>
-                <a href="tel:+18003997328" className="text-terminal-neon hover:underline">
+                <a href="tel:+18003997328" className="text-white hover:underline">
                   +1 (800) 399-7328
                 </a>
               </div>
@@ -64,7 +64,7 @@ export default function TermsPage() {
             {/* Section 1 */}
             <section id="acceptance" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">01.</span>
+                <span className="text-zinc-500 font-mono text-xs">01.</span>
                 Acceptance of Terms
               </h3>
               <p>
@@ -75,7 +75,7 @@ export default function TermsPage() {
             {/* Section 2 */}
             <section id="zero-retention" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">02.</span>
+                <span className="text-zinc-500 font-mono text-xs">02.</span>
                 Zero-Retention Architecture &amp; Data Transmission
               </h3>
               <p>
@@ -91,7 +91,7 @@ export default function TermsPage() {
             {/* Section 3 */}
             <section id="encryption" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">03.</span>
+                <span className="text-zinc-500 font-mono text-xs">03.</span>
                 Cryptographic Security &amp; End-to-End Encryption
               </h3>
               <p>
@@ -102,7 +102,7 @@ export default function TermsPage() {
             {/* Section 4 */}
             <section id="acceptable-use" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">04.</span>
+                <span className="text-zinc-500 font-mono text-xs">04.</span>
                 Acceptable Use Policy
               </h3>
               <p>
@@ -119,7 +119,7 @@ export default function TermsPage() {
             {/* Section 5 */}
             <section id="privacy" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">05.</span>
+                <span className="text-zinc-500 font-mono text-xs">05.</span>
                 Privacy Policy &amp; Telemetry
               </h3>
               <p>
@@ -130,7 +130,7 @@ export default function TermsPage() {
             {/* Section 6 */}
             <section id="liability" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">06.</span>
+                <span className="text-zinc-500 font-mono text-xs">06.</span>
                 Disclaimer of Warranties &amp; Limitation of Liability
               </h3>
               <p>
@@ -141,18 +141,18 @@ export default function TermsPage() {
             {/* Section 7 */}
             <section id="license" className="scroll-mt-24 space-y-3">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">07.</span>
+                <span className="text-zinc-500 font-mono text-xs">07.</span>
                 Open Source Licensing (Apache 2.0)
               </h3>
               <p>
-                The underlying protocol drivers and CLI tooling are licensed under the Apache License, Version 2.0. You may obtain a copy of the License at <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noreferrer" className="text-terminal-neon hover:underline font-mono">apache.org/licenses/LICENSE-2.0</a>.
+                The underlying protocol drivers and CLI tooling are licensed under the Apache License, Version 2.0. You may obtain a copy of the License at <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noreferrer" className="text-white underline hover:text-zinc-300 font-mono">apache.org/licenses/LICENSE-2.0</a>.
               </p>
             </section>
 
             {/* Section 8 */}
             <section id="contact-info" className="scroll-mt-24 space-y-4 pt-6 border-t border-brand-borderSubtle">
               <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2">
-                <span className="text-terminal-neon font-mono text-xs">08.</span>
+                <span className="text-zinc-500 font-mono text-xs">08.</span>
                 Contact &amp; Legal Notices
               </h3>
               <p>
@@ -161,7 +161,7 @@ export default function TermsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono">
                 <div className="p-4 rounded-lg bg-zinc-900/60 border border-zinc-800">
                   <div className="text-xs text-zinc-500 uppercase">Support &amp; Legal Email</div>
-                  <a href="mailto:support@dyyrect.com" className="text-white hover:text-terminal-neon font-semibold text-sm mt-1 inline-block">
+                  <a href="mailto:support@dyyrect.com" className="text-white hover:underline font-semibold text-sm mt-1 inline-block">
                     support@dyyrect.com
                   </a>
                   <div className="text-[11px] text-zinc-500 mt-0.5">General &amp; Compliance Inquiries</div>
@@ -169,7 +169,7 @@ export default function TermsPage() {
 
                 <div className="p-4 rounded-lg bg-zinc-900/60 border border-zinc-800">
                   <div className="text-xs text-zinc-500 uppercase">Direct Contact Number</div>
-                  <a href="tel:+18003997328" className="text-white hover:text-terminal-neon font-semibold text-sm mt-1 inline-block">
+                  <a href="tel:+18003997328" className="text-white hover:underline font-semibold text-sm mt-1 inline-block">
                     +1 (800) 399-7328
                   </a>
                   <div className="text-[11px] text-zinc-500 mt-0.5">Toll-Free 24/7 Hotline</div>
@@ -192,7 +192,7 @@ export default function TermsPage() {
 
             <Link
               href="/signup"
-              className="px-4 py-2 rounded-lg bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-xs transition-all"
+              className="px-4 py-2 rounded-lg bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             >
               Get Started with dyyrect
             </Link>
