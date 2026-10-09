@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} dark scroll-smooth h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-brand-black text-brand-light selection:bg-terminal-neon/30 selection:text-terminal-neon">
+      <body className="min-h-full flex flex-col bg-brand-black text-white selection:bg-white selection:text-black">
         {children}
       </body>
     </html>

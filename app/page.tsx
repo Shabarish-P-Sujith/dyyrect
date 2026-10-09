@@ -10,7 +10,7 @@ export default function HomePage() {
     <div className="bg-brand-black text-brand-light font-sans antialiased min-h-screen relative flex flex-col justify-between">
       {/* Subtle Atmospheric Ambient Glow */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-white/[0.035] via-terminal-neon/[0.012] to-transparent blur-3xl opacity-70"></div>
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-white/[0.04] via-zinc-600/[0.015] to-transparent blur-3xl opacity-70"></div>
       </div>
 
       <Navbar />
@@ -24,7 +24,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
             {/* Minimalist pill badge */}
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-dark border border-brand-border text-xs text-brand-secondary mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon animate-pulse shadow-[0_0_6px_#00FF66]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_6px_rgba(255,255,255,0.6)]"></span>
               <span>Direct browser-to-browser streaming</span>
             </div>
 
@@ -44,12 +44,12 @@ export default function HomePage() {
             {/* Clean Dual CTA */}
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3.5">
               <a
-                className="px-5 py-2.5 rounded-lg bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-sm transition-all duration-150 flex items-center space-x-2 shadow-neon-sm active:scale-[0.98]"
+                className="px-5 py-2.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all duration-150 flex items-center space-x-2 shadow-[0_0_15px_rgba(255,255,255,0.2)] active:scale-[0.98]"
                 href="#dropzone"
               >
                 <span>Start Direct Transfer</span>
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 stroke-[2.5]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -58,7 +58,6 @@ export default function HomePage() {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
                   />
                 </svg>
               </a>
@@ -158,7 +157,7 @@ export default function HomePage() {
               <div className="p-6 rounded-xl bg-brand-dark/70 border border-brand-border flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-semibold text-terminal-neon bg-terminal-neon/10 px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs font-semibold text-white bg-white/10 border border-white/15 px-2 py-0.5 rounded">
                       STEP 01
                     </span>
                     <svg className="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +179,7 @@ export default function HomePage() {
               <div className="p-6 rounded-xl bg-brand-dark/70 border border-brand-border flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-semibold text-terminal-neon bg-terminal-neon/10 px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs font-semibold text-white bg-white/10 border border-white/15 px-2 py-0.5 rounded">
                       STEP 02
                     </span>
                     <svg className="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,7 +201,7 @@ export default function HomePage() {
               <div className="p-6 rounded-xl bg-brand-dark/70 border border-brand-border flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-semibold text-terminal-neon bg-terminal-neon/10 px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs font-semibold text-white bg-white/10 border border-white/15 px-2 py-0.5 rounded">
                       STEP 03
                     </span>
                     <svg className="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,8 +244,8 @@ export default function HomePage() {
               {/* Feature 1 */}
               <div className="rounded-xl bg-brand-dark/50 border border-brand-border p-6 flex flex-col justify-between">
                 <div>
-                  <div className="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-300 mb-5">
-                    <svg className="w-4 h-4 text-terminal-neon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-300 mb-5 border border-zinc-700/50">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -264,7 +263,7 @@ export default function HomePage() {
               {/* Feature 2 */}
               <div className="rounded-xl bg-brand-dark/50 border border-brand-border p-6 flex flex-col justify-between">
                 <div>
-                  <div className="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-300 mb-5">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-300 mb-5 border border-zinc-700/50">
                     <svg className="w-4 h-4 text-zinc-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
@@ -283,7 +282,7 @@ export default function HomePage() {
               {/* Feature 3 */}
               <div className="rounded-xl bg-brand-dark/50 border border-brand-border p-6 flex flex-col justify-between">
                 <div>
-                  <div className="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-300 mb-5">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-300 mb-5 border border-zinc-700/50">
                     <svg className="w-4 h-4 text-zinc-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
@@ -325,7 +324,7 @@ export default function HomePage() {
               {/* Bento 1 */}
               <div className="p-6 rounded-xl bg-brand-dark/60 border border-brand-border">
                 <div className="flex items-center space-x-2 text-xs font-mono text-zinc-400 mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.6)]"></span>
                   <span>Memory Safety</span>
                 </div>
                 <h3 className="text-base font-semibold text-white">Terabyte Chunking Without Browser Crashes</h3>
@@ -390,7 +389,7 @@ export default function HomePage() {
               {/* Bento 6 */}
               <div className="p-6 rounded-xl bg-brand-dark/60 border border-brand-border">
                 <div className="flex items-center space-x-2 text-xs font-mono text-zinc-400 mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.6)]"></span>
                   <span>Pipeline Native</span>
                 </div>
                 <h3 className="text-base font-semibold text-white">Automated GitHub Actions &amp; CLI SDK</h3>
@@ -425,16 +424,16 @@ export default function HomePage() {
                 </p>
                 <div className="pt-2 space-y-2 text-xs font-mono text-zinc-400">
                   <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.6)]"></span>
                     <span>Single binary install or NPX runtime</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.6)]"></span>
                     <span>Automatic stdout / stdin pipe redirection</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon"></span>
-                    <span>Headless headless token issuance</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.6)]"></span>
+                    <span>Headless token issuance</span>
                   </div>
                 </div>
               </div>
@@ -467,7 +466,7 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-5 rounded-lg bg-brand-dark/40 border border-brand-border hover:border-zinc-700 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-terminal-neon mb-3">
+                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-white mb-3 border border-zinc-700/50">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                   </svg>
@@ -478,7 +477,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="p-5 rounded-lg bg-brand-dark/40 border border-brand-border hover:border-zinc-700 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3 border border-zinc-700/50">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
                   </svg>
@@ -489,7 +488,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="p-5 rounded-lg bg-brand-dark/40 border border-brand-border hover:border-zinc-700 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3 border border-zinc-700/50">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21 3.582 4 8 4s8-1.79 8-4" />
                   </svg>
@@ -500,7 +499,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="p-5 rounded-lg bg-brand-dark/40 border border-brand-border hover:border-zinc-700 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3 border border-zinc-700/50">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                   </svg>
@@ -554,10 +553,10 @@ export default function HomePage() {
               </div>
 
               {/* dyyrect Direct P2P */}
-              <div className="rounded-xl bg-brand-dark/70 border border-zinc-700 p-6 relative shadow-neon-sm">
+              <div className="rounded-xl bg-brand-dark/70 border border-white/20 p-6 relative shadow-[0_0_25px_rgba(255,255,255,0.08)]">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-mono uppercase text-zinc-300 font-semibold">dyyrect P2P</span>
-                  <span className="w-2 h-2 rounded-full bg-terminal-neon shadow-[0_0_6px_#00FF66]"></span>
+                  <span className="text-xs font-mono uppercase text-white font-semibold">dyyrect P2P</span>
+                  <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span>
                 </div>
                 <div className="mt-4">
                   <span className="text-3xl font-bold font-mono text-white">3m 12s</span>
@@ -568,11 +567,11 @@ export default function HomePage() {
                 <div className="mt-6 pt-4 border-t border-brand-border space-y-2 text-xs font-mono text-zinc-300">
                   <div className="flex justify-between">
                     <span>Egress cost:</span>
-                    <span className="text-terminal-neon font-semibold">$0.00</span>
+                    <span className="text-white font-semibold">$0.00</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Data retention:</span>
-                    <span className="text-terminal-neon font-semibold">0 Bytes retained</span>
+                    <span className="text-white font-semibold">0 Bytes retained</span>
                   </div>
                 </div>
               </div>
@@ -640,7 +639,7 @@ export default function HomePage() {
         {/* BEGIN: Call to Action */}
         <section className="py-20 lg:py-24 bg-brand-black relative" data-purpose="minimal-cta" id="cta">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="w-2.5 h-2.5 rounded-full bg-terminal-neon mx-auto mb-6 shadow-[0_0_10px_#00FF66]"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-white mx-auto mb-6 shadow-[0_0_12px_rgba(255,255,255,0.8)]"></div>
             <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
               Ready to transfer directly?
             </h2>
@@ -649,7 +648,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                className="px-5 py-2.5 rounded-lg bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-sm transition-all duration-150 shadow-neon-sm active:scale-[0.98]"
+                className="px-5 py-2.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all duration-150 shadow-[0_0_20px_rgba(255,255,255,0.2)] active:scale-[0.98]"
                 href="#dropzone"
               >
                 Open Ephemeral Room

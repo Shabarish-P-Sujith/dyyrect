@@ -53,7 +53,7 @@ export default function FaqAccordion() {
               <span>{faq.question}</span>
               <svg
                 className={`w-4 h-4 text-zinc-400 transition-transform duration-200 shrink-0 ml-3 ${
-                  isOpen ? "rotate-180 text-terminal-neon" : ""
+                  isOpen ? "rotate-180 text-white" : ""
                 }`}
                 fill="none"
                 stroke="currentColor"
