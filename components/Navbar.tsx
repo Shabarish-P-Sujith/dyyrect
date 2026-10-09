@@ -33,25 +33,29 @@ export default function Navbar() {
               className="px-3 py-1.5 rounded-md hover:text-white hover:bg-white/[0.04] transition-colors"
               href="#architecture"
             >
-              Architecture
+              Resources
+              {/* Architecture */}
             </a>
             <a
               className="px-3 py-1.5 rounded-md hover:text-white hover:bg-white/[0.04] transition-colors"
               href="#cli"
             >
-              CLI &amp; SDK
+              Customers 
+              {/* CLI &amp; SDK */}
             </a>
             <a
               className="px-3 py-1.5 rounded-md hover:text-white hover:bg-white/[0.04] transition-colors"
               href="#benchmarks"
             >
-              Benchmarks
+              Pricing
+              {/* Benchmarks */}
             </a>
             <a
               className="px-3 py-1.5 rounded-md hover:text-white hover:bg-white/[0.04] transition-colors"
               href="#resources"
             >
-              Security
+              Contact
+              {/* Security */}
             </a>
           </nav>
         </div>
