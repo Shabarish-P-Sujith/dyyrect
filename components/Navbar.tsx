@@ -15,14 +15,14 @@ export default function Navbar() {
             aria-label="dyyrect Homepage"
             className="flex items-center space-x-2.5 group focus:outline-none"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-terminal-neon inline-block shadow-[0_0_8px_#00FF66] transition-transform group-hover:scale-110"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-white inline-block shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-transform group-hover:scale-110"></span>
             <span className="font-semibold text-lg tracking-tight text-white group-hover:text-zinc-200 transition-colors font-mono">
               dyyrect
             </span>
           </Link>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-1 text-sm text-brand-secondary font-medium">
+          <nav className="hidden md:flex items-center space-x-1 text-sm text-zinc-400 font-medium">
             <a
               className="px-3 py-1.5 rounded-md hover:text-white hover:bg-white/[0.04] transition-colors"
               href="#product"
@@ -59,13 +59,13 @@ export default function Navbar() {
         {/* Header Right CTAs */}
         <div className="flex items-center space-x-4">
           <Link
-            className="text-sm font-medium text-brand-secondary hover:text-white transition-colors"
+            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
             href="/login"
           >
             Log in
           </Link>
           <Link
-            className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-md bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-sm transition-all duration-150 shadow-neon-sm active:scale-[0.98]"
+            className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-md bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all duration-150 shadow-[0_0_15px_rgba(255,255,255,0.15)] active:scale-[0.98]"
             href="/signup"
           >
             <span>Get Started</span>

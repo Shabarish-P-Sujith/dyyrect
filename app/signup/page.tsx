@@ -44,10 +44,10 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080808] text-zinc-200 font-sans antialiased flex flex-col justify-between relative selection:bg-terminal-neon selection:text-black">
+    <div className="min-h-screen bg-brand-black text-zinc-200 font-sans antialiased flex flex-col justify-between relative selection:bg-white selection:text-black">
       {/* Background Ambience */}
       <div className="fixed inset-0 tech-grid pointer-events-none opacity-40 z-0"></div>
-      <div className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-terminal-neon/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+      <div className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none z-0"></div>
 
       {/* BEGIN: TopBar */}
       <header
@@ -60,7 +60,7 @@ export default function SignupPage() {
           data-purpose="brand-link"
           href="/"
         >
-          <div className="w-2.5 h-2.5 rounded-full bg-terminal-neon group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_#00FF66]"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-white group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,255,255,0.7)]"></div>
           <span className="text-xl font-bold tracking-tight text-white font-mono">
             dyyrect
           </span>
@@ -98,20 +98,20 @@ export default function SignupPage() {
       <main className="relative z-10 flex-grow flex items-center justify-center px-4 py-10 sm:px-6">
         <div className="w-full max-w-[430px] mx-auto" data-purpose="auth-card-container">
           {registered ? (
-            <div className="relative bg-onyx-card/90 backdrop-blur-xl border border-terminal-neon/30 rounded-2xl p-7 sm:p-9 neon-glow shadow-2xl text-center space-y-4">
-              <div className="w-12 h-12 rounded-full bg-terminal-neon/10 border border-terminal-neon/30 text-terminal-neon flex items-center justify-center mx-auto shadow-neon-sm">
+            <div className="relative bg-onyx-card/90 backdrop-blur-xl border border-white/20 rounded-2xl p-7 sm:p-9 shadow-2xl text-center space-y-4">
+              <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center mx-auto shadow-[0_0_15px_rgba(255,255,255,0.15)]">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <h2 className="text-xl font-semibold text-white">Account Created!</h2>
               <p className="text-xs text-zinc-400 font-mono">
-                Your account <span className="text-terminal-neon font-bold">{email}</span> has been successfully registered.
+                Your account <span className="text-white font-bold">{email}</span> has been successfully registered.
               </p>
               <div className="pt-2">
                 <Link
                   href="/login"
-                  className="inline-block w-full py-3 px-4 rounded-xl bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-sm transition-all btn-green-glow font-mono uppercase"
+                  className="inline-block w-full py-3 px-4 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-sm transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] font-mono uppercase"
                 >
                   Proceed to Login
                 </Link>
@@ -119,11 +119,11 @@ export default function SignupPage() {
             </div>
           ) : (
             /* Card Container */
-            <div className="relative bg-onyx-card/90 backdrop-blur-xl border border-onyx-border rounded-2xl p-7 sm:p-9 neon-glow shadow-2xl">
+            <div className="relative bg-onyx-card/90 backdrop-blur-xl border border-onyx-border rounded-2xl p-7 sm:p-9 shadow-2xl">
               {/* Header Text */}
               <div className="text-center mb-7">
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-terminal-neon/10 border border-terminal-neon/20 text-terminal-neon text-[11px] font-mono uppercase tracking-wider mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon animate-pulse shadow-[0_0_6px_#00FF66]"></span>
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-white text-[11px] font-mono uppercase tracking-wider mb-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_6px_rgba(255,255,255,0.7)]"></span>
                   Zero Cloud Storage
                 </div>
                 <h1 className="text-2xl font-semibold tracking-tight text-white">
@@ -170,23 +170,8 @@ export default function SignupPage() {
                       setEmail("dev@gmail.com");
                     }}
                   >
-                    <svg aria-hidden="true" className="w-3.5 h-3.5" viewBox="0 0 24 24">
-                      <path
-                        d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.4l3.7 2.9C6.5 7.4 9 5 12 5z"
-                        fill="#EA4335"
-                      />
-                      <path
-                        d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"
-                        fill="#4285F4"
-                      />
-                      <path
-                        d="M5.6 14.7c-.2-.7-.4-1.5-.4-2.7 0-1.1.2-1.9.4-2.7L1.9 6.4C.7 8.8 0 10.8 0 12s.7 3.2 1.9 5.6l3.7-2.9z"
-                        fill="#FBBC05"
-                      />
-                      <path
-                        d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.4-6.4-5.3L1.9 16c1.8 3.8 5.6 7 10.1 7z"
-                        fill="#34A853"
-                      />
+                    <svg aria-hidden="true" className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.55 0 9.8-4.04 10-9.5H12v3.7h5.6c-.6 2.2-2.5 3.8-5.6 3.8-3.3 0-6-2.7-6-6s2.7-6 6-6c1.5 0 2.8.5 3.8 1.4l2.8-2.8C16.9 3.2 14.6 2 12 2z"/>
                     </svg>
                     <span>Google</span>
                   </button>
@@ -221,7 +206,7 @@ export default function SignupPage() {
               {/* Registration Form */}
               <form onSubmit={handleSignup} className="space-y-4" data-purpose="signup-form">
                 {error && (
-                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs text-center font-mono">
+                  <div className="p-3 rounded-lg bg-zinc-900 border border-zinc-700 text-zinc-300 text-xs text-center font-mono">
                     {error}
                   </div>
                 )}
@@ -232,7 +217,7 @@ export default function SignupPage() {
                   </label>
                   <div className="relative">
                     <input
-                      className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon font-mono transition-colors"
+                      className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white font-mono transition-colors"
                       id="name"
                       name="name"
                       placeholder="e.g. John Doe"
@@ -250,7 +235,7 @@ export default function SignupPage() {
                     Email address
                   </label>
                   <input
-                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon transition-colors font-mono text-[13px]"
+                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors font-mono text-[13px]"
                     id="email"
                     name="email"
                     placeholder="alex@company.io"
@@ -267,7 +252,7 @@ export default function SignupPage() {
                     Password
                   </label>
                   <input
-                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon transition-colors font-mono text-[13px]"
+                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors font-mono text-[13px]"
                     id="password"
                     name="password"
                     placeholder="••••••••••••••••"
@@ -287,7 +272,7 @@ export default function SignupPage() {
                     <span className="text-[10px] text-zinc-400 font-mono">Auto Hole-Punch</span>
                   </div>
                   <select
-                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3 py-2 text-xs text-zinc-300 focus:outline-none focus:border-terminal-neon focus:ring-1 focus:ring-terminal-neon font-mono"
+                    className="w-full bg-onyx-input border border-onyx-border rounded-xl px-3 py-2 text-xs text-zinc-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white font-mono"
                     id="relay-node"
                     name="relay-node"
                     value={region}
@@ -302,7 +287,7 @@ export default function SignupPage() {
 
                 {/* Submit Button */}
                 <button
-                  className="w-full mt-2 py-3 px-4 rounded-xl bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-sm tracking-tight transition-all duration-200 btn-green-glow flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full mt-2 py-3 px-4 rounded-xl bg-white hover:bg-zinc-200 text-black font-semibold text-sm tracking-tight transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   type="submit"
                   disabled={loading}
                 >
@@ -328,7 +313,7 @@ export default function SignupPage() {
               <div className="mt-6 pt-5 border-t border-zinc-800/80 text-center text-xs text-zinc-400">
                 Already have an account?{" "}
                 <Link
-                  className="text-zinc-200 hover:text-terminal-neon font-medium underline underline-offset-4 decoration-zinc-700 transition-colors ml-1"
+                  className="text-white hover:underline font-medium underline-offset-4 decoration-zinc-700 transition-colors ml-1"
                   href="/login"
                 >
                   Sign in
@@ -340,11 +325,11 @@ export default function SignupPage() {
           {/* Legal / Compliance Footnote */}
           <p className="text-center text-[11px] text-zinc-400 mt-6 leading-relaxed max-w-[360px] mx-auto">
             By creating an account, you agree to dyyrect&apos;s{" "}
-            <Link className="underline hover:text-terminal-neon transition-colors" href="/terms">
+            <Link className="underline text-white hover:text-zinc-300 transition-colors" href="/terms">
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link className="underline hover:text-terminal-neon transition-colors" href="/terms#privacy">
+            <Link className="underline text-white hover:text-zinc-300 transition-colors" href="/terms#privacy">
               Data Privacy Agreement
             </Link>
             . Zero data is retained on relay nodes.
@@ -359,7 +344,7 @@ export default function SignupPage() {
         data-purpose="site-footer"
       >
         <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-terminal-neon shadow-[0_0_6px_#00FF66]"></span>
+          <span className="inline-block w-2 h-2 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.7)]"></span>
           <span>STUN / TURN Relays Operational (99.99%)</span>
         </div>
         <div className="flex items-center gap-6">

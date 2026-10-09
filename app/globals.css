@@ -1,41 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #080809;
-  --color-brand-dark: #0e0e10;
-  --color-brand-surface: #131315;
-  --color-brand-card: #161619;
-  --color-brand-border: #232326;
-  --color-brand-borderSubtle: #1b1b1e;
+  --color-brand-black: #000000;
+  --color-brand-dark: #09090b;
+  --color-brand-surface: #0f0f12;
+  --color-brand-card: #141418;
+  --color-brand-border: #222228;
+  --color-brand-borderSubtle: #17171c;
   --color-brand-muted: #71717a;
   --color-brand-secondary: #a1a1aa;
-  --color-brand-light: #f4f4f5;
+  --color-brand-light: #ffffff;
 
-  --color-terminal-neon: #00FF66;
-  --color-terminal-glow: rgba(0, 255, 102, 0.10);
-  --color-terminal-dim: #00df59;
-  --color-terminal-subtle: #004d1f;
+  --color-terminal-neon: #ffffff;
+  --color-terminal-glow: rgba(255, 255, 255, 0.12);
+  --color-terminal-dim: #e4e4e7;
+  --color-terminal-subtle: #27272a;
 
-  --color-onyx-base: #080808;
-  --color-onyx-950: #070709;
-  --color-onyx-900: #0c0c0e;
-  --color-onyx-850: #111115;
-  --color-onyx-800: #16161b;
-  --color-onyx-700: #22222a;
-  --color-onyx-600: #2e2e38;
-  --color-onyx-surface: #0f0f12;
-  --color-onyx-card: #111114;
-  --color-onyx-elevated: #17171c;
-  --color-onyx-border: #212127;
-  --color-onyx-input: #131317;
+  --color-onyx-base: #000000;
+  --color-onyx-950: #050507;
+  --color-onyx-900: #0a0a0d;
+  --color-onyx-850: #0f0f13;
+  --color-onyx-800: #141419;
+  --color-onyx-700: #1f1f26;
+  --color-onyx-600: #2b2b34;
+  --color-onyx-surface: #0d0d11;
+  --color-onyx-card: #111116;
+  --color-onyx-elevated: #16161c;
+  --color-onyx-border: #24242c;
+  --color-onyx-input: #0e0e12;
 
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, monospace;
 }
 
 :root {
-  --background: #080809;
-  --foreground: #f4f4f5;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
@@ -47,33 +47,33 @@ body {
 .bg-grid-subtle {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .tech-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 0);
   background-size: 32px 32px;
 }
 
 .bg-radial-flare {
-  background: radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.07) 0%, rgba(7, 7, 9, 0) 65%);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(5, 5, 7, 0) 65%);
 }
 
 .shadow-neon-sm {
-  box-shadow: 0 0 14px -2px rgba(0, 255, 102, 0.35);
+  box-shadow: 0 0 16px -2px rgba(255, 255, 255, 0.20);
 }
 
 .shadow-glow-subtle {
-  box-shadow: 0 0 25px -4px rgba(0, 255, 102, 0.20);
+  box-shadow: 0 0 25px -4px rgba(255, 255, 255, 0.15);
 }
 
 .neon-glow {
-  box-shadow: 0 0 45px -10px rgba(0, 255, 102, 0.18);
+  box-shadow: 0 0 45px -10px rgba(255, 255, 255, 0.10);
 }
 
 .btn-green-glow:hover {
-  box-shadow: 0 0 25px -4px rgba(0, 255, 102, 0.45);
+  box-shadow: 0 0 25px -4px rgba(255, 255, 255, 0.35);
 }
 
 .interactive-transition {

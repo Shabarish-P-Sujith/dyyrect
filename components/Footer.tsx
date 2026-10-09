@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Col 1: Brand & Status (Span 2 on lg) */}
           <div className="lg:col-span-2 space-y-3.5 pr-4">
             <Link href="/" className="flex items-center space-x-2 w-fit group">
-              <span className="w-2 h-2 rounded-full bg-terminal-neon shadow-[0_0_6px_#00FF66] group-hover:scale-110 transition-transform"></span>
+              <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.6)] group-hover:scale-110 transition-transform"></span>
               <span className="font-semibold text-white tracking-tight text-base font-mono">
                 dyyrect
               </span>
@@ -25,8 +25,8 @@ export default function Footer() {
             </p>
             <div className="pt-2 font-mono text-[11px] text-zinc-500 flex flex-col gap-1">
               <div>Licensed under Apache 2.0 • Zero Retention Engine</div>
-              <div className="flex items-center gap-1.5 text-emerald-400/90 text-[11px] pt-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon animate-pulse"></span>
+              <div className="flex items-center gap-1.5 text-zinc-300 text-[11px] pt-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                 <span>Direct P2P Signaling Mesh Active</span>
               </div>
             </div>
@@ -39,7 +39,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 font-sans">
               <li>
-                <Link className="hover:text-white hover:text-terminal-neon transition-colors flex items-center gap-1.5" href="/">
+                <Link className="hover:text-white transition-colors flex items-center gap-1.5" href="/">
                   <span>Home</span>
                 </Link>
               </li>
@@ -117,7 +117,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 font-sans">
               <li>
-                <Link className="hover:text-white hover:text-terminal-neon transition-colors" href="/terms">
+                <Link className="hover:text-white transition-colors" href="/terms">
                   Terms and Conditions
                 </Link>
               </li>
@@ -157,7 +157,7 @@ export default function Footer() {
                   href="mailto:support@dyyrect.com"
                 >
                   <svg
-                    className="w-3.5 h-3.5 text-terminal-neon shrink-0 group-hover:scale-110 transition-transform"
+                    className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white shrink-0 group-hover:scale-110 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -179,7 +179,7 @@ export default function Footer() {
                   href="mailto:contact@dyyrect.com"
                 >
                   <svg
-                    className="w-3.5 h-3.5 text-terminal-neon shrink-0 group-hover:scale-110 transition-transform"
+                    className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white shrink-0 group-hover:scale-110 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -201,7 +201,7 @@ export default function Footer() {
                   href="tel:+18003997328"
                 >
                   <svg
-                    className="w-3.5 h-3.5 text-terminal-neon shrink-0 group-hover:scale-110 transition-transform"
+                    className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white shrink-0 group-hover:scale-110 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -228,7 +228,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-zinc-500">
           <div className="flex items-center space-x-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-terminal-neon animate-pulse"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
             <span>Systems normal — Global STUN / TURN mesh operational</span>
           </div>
           <div className="flex items-center gap-4">

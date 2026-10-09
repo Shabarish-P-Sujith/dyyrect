@@ -34,7 +34,7 @@ export default function TransferDropzone() {
     >
       <div className="rounded-2xl border border-brand-border bg-brand-card/90 backdrop-blur-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
         {/* Subtle top inner highlight */}
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
 
         {transferState === "idle" && (
           <div
@@ -52,12 +52,12 @@ export default function TransferDropzone() {
             }}
             className={`border-2 border-dashed rounded-xl p-8 text-center transition-all cursor-pointer ${
               isHovered
-                ? "border-terminal-neon bg-terminal-neon/[0.03]"
+                ? "border-white/80 bg-white/[0.04]"
                 : "border-brand-border hover:border-zinc-700 bg-brand-dark/40"
             }`}
             onClick={() => handleSimulateSelect("production-dataset-v2.tar.gz (18.4 GB)")}
           >
-            <div className="w-12 h-12 rounded-full bg-zinc-800/80 border border-brand-border flex items-center justify-center mx-auto mb-4 text-terminal-neon shadow-neon-sm">
+            <div className="w-12 h-12 rounded-full bg-zinc-800/80 border border-brand-border flex items-center justify-center mx-auto mb-4 text-white shadow-[0_0_15px_rgba(255,255,255,0.12)]">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -80,7 +80,7 @@ export default function TransferDropzone() {
               >
                 Browse Files
               </button>
-              <span className="text-zinc-600 text-xs font-mono">or click to simulate sample transfer</span>
+              <span className="text-zinc-500 text-xs font-mono">or click to simulate sample transfer</span>
             </div>
           </div>
         )}
@@ -89,7 +89,7 @@ export default function TransferDropzone() {
           <div className="space-y-5">
             <div className="flex items-center justify-between pb-4 border-b border-brand-border">
               <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-lg bg-terminal-neon/10 border border-terminal-neon/20 flex items-center justify-center text-terminal-neon font-mono text-xs font-bold">
+                <div className="w-9 h-9 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white font-mono text-xs font-bold">
                   P2P
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export default function TransferDropzone() {
             <div className="p-4 rounded-xl bg-brand-dark/80 border border-brand-border space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs text-zinc-400 font-mono uppercase">Ephemeral Room Code:</span>
-                <span className="text-xs font-mono text-terminal-neon bg-terminal-neon/10 px-2 py-0.5 rounded border border-terminal-neon/20">
+                <span className="text-xs font-mono text-white bg-white/10 px-2 py-0.5 rounded border border-white/20 font-bold">
                   {roomCode}
                 </span>
               </div>
@@ -134,12 +134,12 @@ export default function TransferDropzone() {
 
             <div className="flex items-center justify-between pt-2">
               <div className="flex items-center space-x-2 text-xs font-mono text-zinc-400">
-                <span className="w-2 h-2 rounded-full bg-terminal-neon animate-ping"></span>
+                <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
                 <span>Listening for receiver handshake...</span>
               </div>
               <button
                 onClick={handleStartStream}
-                className="px-5 py-2.5 rounded-lg bg-terminal-neon hover:bg-terminal-dim text-black font-semibold text-xs transition-all shadow-neon-sm"
+                className="px-5 py-2.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]"
               >
                 Simulate Direct Transfer
               </button>
@@ -151,21 +151,21 @@ export default function TransferDropzone() {
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-brand-border">
               <div className="flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-terminal-neon animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                 <span className="text-sm font-semibold text-white font-mono">
                   Streaming Active: {selectedFile}
                 </span>
               </div>
-              <span className="text-xs font-mono text-terminal-neon font-bold">142.6 MB/s</span>
+              <span className="text-xs font-mono text-white font-bold">142.6 MB/s</span>
             </div>
 
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-mono text-zinc-400">
                 <span>Progress (12.8 GB / 18.4 GB)</span>
-                <span>69%</span>
+                <span className="text-white font-semibold">69%</span>
               </div>
               <div className="w-full bg-zinc-900 h-2 rounded-full overflow-hidden border border-zinc-800">
-                <div className="bg-terminal-neon h-full w-[69%] rounded-full shadow-[0_0_10px_#00FF66] transition-all duration-300"></div>
+                <div className="bg-white h-full w-[69%] rounded-full shadow-[0_0_10px_rgba(255,255,255,0.6)] transition-all duration-300"></div>
               </div>
               <div className="flex justify-between text-[11px] font-mono text-zinc-500 pt-1">
                 <span>Latency: 12ms (Direct NAT-PMP socket)</span>
